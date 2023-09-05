@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,9 @@
 <body>
     <div class="container">
         <div id="logo">
-            <h1 class="logo">UPDATE</h1>
+            <h1 class="logo">SIGNUP</h1>
             <div class="CTA">
-                <h1>VINCI.ENT</h1>
+                <h1>ChasTEA</h1>
             </div>
         </div>
 
@@ -24,7 +25,7 @@
                     <i class="fa-sharp fa-solid fa-gear"></i>
                 </a>
                 <a href="../suppliers.php" class="active">
-                    <i class="fa-sharp fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-right-to-bracket"></i>
                 </a>
             </nav>
         </div>
@@ -32,15 +33,14 @@
                 <div class="profile">
                     <form method="POST">
                         <input type="hidden" name="id" value="">
-                            <h1>Supplier</h1>
-                            <h2>NAME</h2>
+                            <h2>USERNAME</h2>
                         <input class="update" name="name" value=""> </input>
-                            <h2>ADDRESS</h2>
+                            <h2>PASSWORD</h2>
                         <input class="update" name="address" value=""> </input>
-                            <h2>NO.</h2>
+                            <h2>CONFIRM PASSWORD</h2>
                         <input class="update" name="num" value=""> </input>
-                            <h2>EMAIL</h2>
-                        <input class="update" name="email" value=""> </input><button class="btn" type="submit">CHANGE</button>
+                        <a class="update" href="#"><h2>FORGET PASSWORD</h2></a>
+                        <button class="btn" type="submit">SIGNUP</button>
                     </form>
                 </div>
 

@@ -32,15 +32,61 @@
             <div class="rightbox">
                 <div class="profile">
                     <form method="POST">
-                        <input type="hidden" name="id" value="">
+                       
                             <h2>USERNAME</h2>
-                        <input class="update" name="name" value=""> </input>
+                        <input class="update" name="username" value=""> </input>
                             <h2>PASSWORD</h2>
-                        <input class="update" name="address" value=""> </input>
+                        <input class="update" name="password" value=""> </input>
                             <h2>CONFIRM PASSWORD</h2>
-                        <input class="update" name="num" value=""> </input>
+                        <input class="update" name="cpassword" value=""> </input>
                         <a class="update" href="#"><h2>FORGET PASSWORD</h2></a>
-                        <button class="btn" type="submit">SIGNUP</button>
+                        <button class="btn" name="submit" type="submit">SIGNUP</button>
+                        <?php
+    include_once ("../connection.php");
+    $con = connection();
+
+    if(!isset($_SESSION)){
+    session_start();
+    }
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
+    $sql = "SELECT * FROM user WHERE username = '$username'";
+    $user = $con->query($sql) or die($con->error);
+    $row = $user->fetch_assoc();
+    $total = $user->num_rows;
+    if ($cpassword == $password) {
+
+
+        if ($total > 0) {
+            ?>
+            <h1 class="error">Username is already Taken!</h1>
+			<?php
+        } else {
+            $sql1 = "SELECT * FROM user WHERE username = '$username'";
+            $user1 = $con->query($sql1) or die($con->error);
+            $row1 = $user1->fetch_assoc();
+            $total1 = $user1->num_rows;
+            if ($total1 > 0) {
+                ?>
+				<h1 class="error">Email has an existing account</h1>
+				<?php
+            } else {
+                $sql = "INSERT INTO `user`(`username`,`password`) VALUES ('$username','$password')";
+                $con->query($sql) or die($con->error);
+                echo header("Location: signup.php");
+            }
+        }
+    }
+    else{
+        ?>
+		<h1 class="error">Password does not match</h1>
+		<?php
+    }
+}
+?>
                     </form>
                 </div>
 

@@ -5,7 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
 	<title>ChasTEA</title>
+=======
+	<title>CC 105</title>
+>>>>>>> main
 	<link rel="stylesheet" href="authentication.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -24,7 +28,7 @@
                 <a href="#" class="active">
                     <i class="fa-sharp fa-solid fa-gear"></i>
                 </a>
-                <a href="../suppliers.php" class="active">
+                <a href="#" class="active">
                     <i class="fa-solid fa-right-to-bracket"></i>
                 </a>
             </nav>

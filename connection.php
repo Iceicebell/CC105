@@ -3,7 +3,7 @@ function connection(){
     $host="localhost";
 $username="root";
 $password="";
-$database="pharmacy_management";
+$database="cc105";
 
 $connect=new mysqli($host,$username,$password,$database);
 

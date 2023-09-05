@@ -24,7 +24,7 @@
                 <a href="#" class="active">
                     <i class="fa-sharp fa-solid fa-gear"></i>
                 </a>
-                <a href="../suppliers.php" class="active">
+                <a href="#" class="active">
                     <i class="fa-solid fa-right-to-bracket"></i>
                 </a>
             </nav>

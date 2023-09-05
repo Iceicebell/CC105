@@ -3,7 +3,7 @@
     
     function login($name, $password){
 
-        include('connection/connect.php');
+        include('..\connection.php');
         $emp_query = "SELECT * FROM employee WHERE employee_Name = '$name' AND password = '$password'";
         $emp_prompt = $con->query($emp_query) or die ($con->error);
         $emp_result = $emp_prompt->fetch_assoc();

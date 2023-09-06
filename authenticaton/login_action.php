@@ -1,29 +1,31 @@
 <?php
-    include 'login_func.php';
+
+if(!isset($_SESSION)){
     session_start();
-    $GLOBALS['type']='';
+}
+
+include_once("../connection.php");
+$con = connection();
    
-    if (isset($_POST['login'])) {
-        $name = $_POST['username'];
-        $password = md5 ($_POST['password']);
+   
+   
+    if(isset($_POST['login'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
     
-        if (login($name, $password)) {
-            if ($_SESSION['user_type'] === 'user') {
-                $type = 'user';
-                header('Location: admin_index.php');
-                exit();
-            } elseif ($_SESSION['user_type'] === 'admin') {
-                $type = 'admin'; 
-                header('Location: index.php');
-                exit();
-            }
-            
-            
-        } else {
-            echo "Invalid username or password";
+        $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+        $user = $con->query($sql) or die ($con->error);
+        $row = $user->fetch_assoc();
+        $total = $user->num_rows;
+        
+        
+        if ($total > 0) {
+            $_SESSION['UserLogin'] = $row['username'];
+            $_SESSION['Access'] = $row['access'];
+            echo header("Location: index.php");
+        }  else{    
+            echo "No User Found!";
         }
     }
-    
-    
-    
-    ?>
+
+?>

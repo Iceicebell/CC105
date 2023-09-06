@@ -29,7 +29,7 @@
                                 <h2>USERNAME</h2> 
                                 <input type = "password" name="password" class="update" placeholder="Password"/>  
                                 <h2>PASSWORD</h2>
-                                <input type =  "submit" class="btn" id = "btn" value = "Login" name="login"/>  
+                                <input type =  "submit" name="login" class="btn" id = "btn" value = "Login" />  
                     </form>  
                 </div>
         </div>

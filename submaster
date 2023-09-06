@@ -1,1 +1,39 @@
-branch 'submaster' set up to track 'origin/submaster'.
+<?php
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
+    $sql = "SELECT * FROM user WHERE username = '$username'";
+    $user = $connection->query($sql) or die($connection->error);
+    $row = $user->fetch_assoc();
+    $total = $user->num_rows;
+    if ($cpassword == $password) {
+
+
+        if ($total > 0) {
+            ?>
+            <h1 class="error">Username is already Taken!</h1>
+			<?php
+        } else {
+            $sql1 = "SELECT * FROM user WHERE username = '$username'";
+            $user1 = $connection->query($sql1) or die($connection->error);
+            $row1 = $user1->fetch_assoc();
+            $total1 = $user1->num_rows;
+            if ($total1 > 0) {
+                ?>
+				<h1 class="error">Email has an existing account</h1>
+				<?php
+            } else {
+                $sql = "INSERT INTO `user`(`username`,`password`) VALUES ('$username','$password')";
+                $connection->query($sql) or die($connection->error);
+                echo header("Location: signup.php");
+            }
+        }
+    }
+    else{
+        ?>
+		<h1 class="error">Password does not match</h1>
+		<?php
+    }
+}
+?>

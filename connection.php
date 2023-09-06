@@ -5,13 +5,13 @@ $username="root";
 $password="";
 $database="cc105";
 
-$connect=new mysqli($host,$username,$password,$database);
+$con=new mysqli($host,$username,$password,$database);
 
-if($connect->connect_error){
-    die('Connection failed'.$connection->connect_error);
+if($con->connect_error){
+    die('Connection failed'.$con->connect_error);
 }
 else{
-    return $connect;
+    return $con;
 }
 }
 ?>
